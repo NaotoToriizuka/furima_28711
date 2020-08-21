@@ -48,7 +48,6 @@ Things you may want to cover:
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
 | user_id         | references | null: false, foreign_key: true |
-| image           | string     | null: false                    |
 | name            | string     | null: false                    |
 | description     | text       | null: false                    |
 | category_id     | integer    | null: false                    |
@@ -62,11 +61,6 @@ Things you may want to cover:
 
 - belongs_to             :user
 - has_one                :purchase
-- belongs_to_active_hash :category
-- belongs_to_active_hash :condition
-- belongs_to_active_hash :postage_payer
-- belongs_to_active_hash :shipping_day
-- belongs_to_active_hash :prefecture
 
 ## purchases テーブル
 
@@ -80,67 +74,18 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :item
 - has_one    :address
-- has_one    :card
 
 ## addresses テーブル
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| post_code     | integer    | null: false                    |
-| prefecture_id | references | null: false, foreign_key: true |
-| city          | string     | null: false                    |
-| house_number  | string     | null: false                    |
-| building_name | string     |                                |
-| phone_number  | integer    | null: false                    |
+| Column        | Type    | Options     |
+| ------------- | ------- | ----------- |
+| post_code     | integer | null: false |
+| prefecture_id | integer | null: false |
+| city          | string  | null: false |
+| house_number  | string  | null: false |
+| building_name | string  |             |
+| phone_number  | integer | null: false |
 
 ### Association
 
 - belongs_to             :purchase
-- belongs_to_active_hash :prefecture
-
-## cards テーブル
-
-| Column          | Type    | Options     |
-| --------------- | ------- | ----------- |
-| number          | integer | null: false |
-| expiration_date | integer | null: false |
-| security_code   | integer | null: false |
-
-### Association
-
-- belongs_to :purchase
-
-
-#### Active_Hash
-
-## category 
-
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| category | string | null: false |
-
-## condition
-
-| Column    | Type   | Options     |
-| --------- | ------ | ----------- |
-| condition | string | null: false |
-
-## postage_payer
-
-| Column        | Type   | Options     |
-| ------------- | ------ | ----------- |
-| postage_payer | string | null: false |
-
-# shipping_day
-
-| Column       | Type   | Options     |
-| ------------ | ------ | ----------- |
-| shipping_day | string | null: false |
-
-# prefecture
-
-| Column     | Type   | Options     |
-| ---------- | ------ | ----------- |
-| prefecture | string | null: false |
-
-
