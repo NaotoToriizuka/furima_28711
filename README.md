@@ -41,13 +41,13 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-- has_one  :purchase
+- has_many  :purchases
 
 ## items テーブル
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
-| user_id         | references | null: false, foreign_key: true |
+| user            | references | null: false, foreign_key: true |
 | name            | string     | null: false                    |
 | description     | text       | null: false                    |
 | category_id     | integer    | null: false                    |
@@ -64,10 +64,10 @@ Things you may want to cover:
 
 ## purchases テーブル
 
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| user_id | references | null: false, foreign_key: true |
-| item_id | references | null: false, foreign_key: true |
+| Column | Type       | Options                        |
+| -----  | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
 
 ### Association
 
