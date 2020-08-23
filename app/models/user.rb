@@ -16,4 +16,7 @@ class User < ApplicationRecord
     validates :first_name_kana, format: { with: str_full_kana, message: "Full-width katakana characters"}
     validates :birth_day
   end
+
+  has_many :items
+  
 end
