@@ -34,8 +34,18 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Category Select")
       end
+      it "Active Hashで「1」が選択されたら保存できない" do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category Select")
+      end
       it "conditionを選択しなければ保存できない" do
         @item.condition_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Condition Select")
+      end
+      it "Active Hashで「1」が選択されたら保存できない" do
+        @item.condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition Select")
       end
@@ -44,13 +54,28 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Postage payer Select")
       end
+      it "Active Hashで「1」が選択されたら保存できない" do
+        @item.postage_payer_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Postage payer Select")
+      end
       it "shipping_dayを選択しなければ保存できない" do
         @item.shipping_day_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping day Select")
       end
+      it "Active Hashで「1」が選択されたら保存できない" do
+        @item.shipping_day_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping day Select")
+      end
       it "prefectureを選択しなければ保存できない" do
         @item.prefecture_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Prefecture Select")
+      end
+      it "Active Hashで「1」が選択されたら保存できない" do
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture Select")
       end
