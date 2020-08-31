@@ -8,6 +8,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_day
   belongs_to_active_hash :prefecture
   has_one                :purchase
+  has_one                :address
 
   with_options presence: true do
     validates :image
